@@ -22,6 +22,13 @@ func Configuration(ctx context.Context, origins []string, uploadDir string) (Con
 		cfg.AppURL = "http://localhost:3000"
 	}
 	cfg.ProductionProfile = "development"
+	cfg.UploadPolicy = os.Getenv("UPLOAD_POLICY")
+	if cfg.UploadPolicy == "" {
+		cfg.UploadPolicy = "scanned"
+	}
+	if cfg.UploadPolicy != "scanned" && cfg.UploadPolicy != "images-only" {
+		return cfg, errors.New("UPLOAD_POLICY must be scanned or images-only")
+	}
 	if cfg.APIURL == "" {
 		cfg.APIURL = "http://localhost:8080/api"
 	}
@@ -122,6 +129,9 @@ func Configuration(ctx context.Context, origins []string, uploadDir string) (Con
 		if cfg.ProductionProfile != "full" && cfg.ProductionProfile != "core" {
 			return cfg, errors.New("PRODUCTION_PROFILE must be full or core")
 		}
+		if cfg.UploadPolicy == "images-only" && cfg.ProductionProfile != "core" {
+			return cfg, errors.New("images-only uploads require PRODUCTION_PROFILE=core")
+		}
 		app, e1 := url.Parse(cfg.AppURL)
 		api, e2 := url.Parse(cfg.APIURL)
 		if e1 != nil || e2 != nil || app.Scheme != "https" || api.Scheme != "https" || app.Host == "" || api.Host == "" || app.User != nil || api.User != nil || app.RawQuery != "" || api.RawQuery != "" || app.Fragment != "" || api.Fragment != "" || (app.Path != "" && app.Path != "/") || api.Path != "/api" || !cfg.SecureCookie {
@@ -136,7 +146,8 @@ func Configuration(ctx context.Context, origins []string, uploadDir string) (Con
 		if cfg.ProductionProfile == "full" && (cfg.Mailer == nil || cfg.Scanner == nil || cfg.Blobs == nil || cfg.OIDC == nil || cfg.Drive == nil) {
 			return cfg, errors.New("production requires encryption, SMTP, ClamAV, S3, Google SSO and Drive configuration")
 		}
-		cfg.DisableUploads = cfg.Blobs == nil || cfg.Scanner == nil
+		cfg.DisableUploads = cfg.Blobs == nil || cfg.Scanner == nil || cfg.UploadPolicy == "images-only"
+		cfg.AllowImageUploads = cfg.Blobs != nil && cfg.UploadPolicy == "images-only"
 		if !containsOrigin(origins, app.Scheme+"://"+app.Host) {
 			return cfg, errors.New("ALLOWED_ORIGINS must include APP_PUBLIC_URL origin")
 		}

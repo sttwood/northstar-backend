@@ -29,6 +29,8 @@ type Config struct {
 	Production        bool
 	ProductionProfile string
 	DisableUploads    bool
+	UploadPolicy      string
+	AllowImageUploads bool
 	FrontendURL       string
 	MailMode          string
 	AppURL            string

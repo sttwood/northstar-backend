@@ -1,6 +1,6 @@
 # Production setup and operations
 
-This is a native Go/PostgreSQL service with a separate Next.js repository. No Docker is required. The application supports Google Workspace OIDC, authenticator MFA, SMTP, Google Drive Shared Drives, S3-compatible storage, and ClamAV. Local development may omit external providers; `APP_ENV=production` refuses to start without their configuration. Actual provider delivery and your Google tenant must be verified after credentials are installed.
+This is a native Go/PostgreSQL service with a separate Next.js repository. No Docker is required. The application supports Google Workspace OIDC, authenticator MFA, SMTP, Google Drive Shared Drives, S3-compatible storage, and ClamAV. Local development may omit external providers; `APP_ENV=production` with the default `PRODUCTION_PROFILE=full` refuses to start without their configuration. Explicit core mode defers providers and gates uploads as described below. Actual provider delivery and your Google tenant must be verified after credentials are installed.
 
 ## Native installation
 
@@ -47,7 +47,7 @@ Notifications and mail jobs commit in the same database transaction as request c
 
 Set `S3_BUCKET`, `AWS_REGION`, and optionally `S3_ENDPOINT` for another S3-compatible provider. The AWS credential chain supports instance/workload roles; prefer those to permanent keys. Grant only bucket Head/List access needed for startup and object Get/Put/Delete for the application prefix. Block all public access and public ACLs; enable server-side encryption and appropriate bucket lifecycle/version policies. The app writes random tenant-prefixed keys with conditional creation. Browser downloads always pass session, tenant and employee authorization; no public/presigned file URL is returned.
 
-Set `CLAMAV_ADDRESS=private-host:3310`. Uploads are limited to 10 MB, validate file format, and pass INSTREAM scanning before storage. Production refuses missing scanning configuration. Unavailable, malformed, infected, and missing scanner verdicts reject the upload. Drive imports are scanned too. Local development without ClamAV explicitly reports scanning disabled in delivery settings; it is not a production substitute.
+Set `CLAMAV_ADDRESS=private-host:3310`. General uploads are limited to 10 MB, validate file format, and pass INSTREAM scanning before storage. Full production refuses missing scanning configuration; default scanned policy in core disables uploads when scanning/storage is absent. Unavailable, malformed, infected, and missing scanner verdicts reject the upload. Drive imports are scanned too. Local development without ClamAV explicitly reports scanning disabled in delivery settings; it is not a production substitute. The separate core-only image policy below permits normalized avatar/community PNG/JPEG without claiming antivirus protection.
 
 ## Google Drive synchronization
 
@@ -87,4 +87,4 @@ Before live release: configure your company/domain/URLs and providers, verify Go
 
 ## Explicit core release profile
 
-The default PRODUCTION_PROFILE=full retains all existing provider requirements. Explicit core mode permits deferred SMTP/Google/Drive while retaining production HTTPS, secure cookies, encryption and no demo seeds/previews. Without BOTH private S3 and ClamAV, all uploads return 503 and capabilities report storage/uploads disabled. Nothing silently switches to production filesystem uploads or fake delivery. See [DEPLOY_V1.md](DEPLOY_V1.md) for native Render/Postgres plus Vercel setup and the activation path.
+The default PRODUCTION_PROFILE=full retains all existing provider requirements. Explicit core mode permits deferred SMTP/Google/Drive while retaining production HTTPS, secure cookies, encryption and no demo seeds/previews. With default `UPLOAD_POLICY=scanned`, without BOTH private S3 and ClamAV all uploads return 503 and capabilities report storage/uploads disabled. Core alone supports an opt-in `UPLOAD_POLICY=images-only` with verified S3/R2 for bounded, decoded/re-encoded PNG/JPEG profile/community images; these report `image-normalized`, never an antivirus clean verdict. General files remain blocked and a configured scanner failure never falls back. Full rejects images-only. Nothing silently switches to production filesystem uploads or fake delivery. See [DEPLOY_V1.md](DEPLOY_V1.md) for native Render/Postgres plus Vercel setup and [FREE_SERVICES.md](FREE_SERVICES.md) for R2, alternate-port SMTP and deferred Google setup.

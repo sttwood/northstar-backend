@@ -16,7 +16,11 @@ import (
 const maxUpload = 10 * 1024 * 1024
 
 func (a *API) upload(w http.ResponseWriter, r *http.Request) {
-	if a.cfg.DisableUploads {
+	if a.cfg.DisableUploads && !a.cfg.AllowImageUploads {
+		if a.cfg.UploadPolicy == "images-only" {
+			writeError(w, fail(503, "Image uploads are unavailable until private object storage is configured."))
+			return
+		}
 		writeError(w, fail(503, "File uploads are unavailable until private object storage and scanning are configured."))
 		return
 	}
@@ -41,6 +45,11 @@ func (a *API) upload(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	category, employeeID := r.FormValue("category"), r.FormValue("employeeId")
+	imageCategory := category == "avatar" || category == "community-image"
+	if a.cfg.DisableUploads && !imageCategory {
+		writeError(w, fail(503, "Document uploads require private object storage and antivirus scanning."))
+		return
+	}
 	if !domain.Contains([]string{"payslip", "document", "attachment", "project-resource", "payslip-reference", "avatar", "community-image"}, category) {
 		writeError(w, fail(400, "invalid file category"))
 		return
@@ -93,7 +102,7 @@ func (a *API) upload(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		file.ScanStatus = "clean"
-	} else if a.cfg.Production {
+	} else if a.cfg.Production && !(a.cfg.AllowImageUploads && imageCategory) {
 		writeError(w, fail(503, "file scanner unavailable"))
 		return
 	}
@@ -112,6 +121,9 @@ func (a *API) upload(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 		file.Size = int64(len(b))
+	}
+	if a.cfg.Production && a.cfg.Scanner == nil && a.cfg.AllowImageUploads && imageCategory {
+		file.ScanStatus = "image-normalized"
 	}
 	if err = a.cfg.Blobs.Put(r.Context(), file.StorageKey, b); err != nil {
 		writeError(w, err)

@@ -70,10 +70,10 @@ func (a *API) companyStatus(w http.ResponseWriter, r *http.Request) error {
 	visible := *c
 	visible.ApprovalStages = []string{"owner"}
 	storage := a.cfg.Blobs.Name()
-	if a.cfg.DisableUploads {
+	if a.cfg.DisableUploads && !a.cfg.AllowImageUploads {
 		storage = "disabled"
 	}
-	respond(w, 200, map[string]any{"company": &visible, "integrations": map[string]any{"googleSso": a.cfg.OIDC != nil, "smtp": a.cfg.Mailer != nil && a.cfg.MailMode != "preview", "emailDelivery": a.cfg.MailMode, "googleDrive": a.cfg.Drive != nil, "storage": storage, "scanner": scanner, "fileUploads": !a.cfg.DisableUploads, "productionProfile": a.cfg.ProductionProfile, "mfa": len(a.cfg.MasterKey) == 32, "production": a.cfg.Production}, "jobs": jobs, "invitations": invitations, "legalHolds": holds})
+	respond(w, 200, map[string]any{"company": &visible, "integrations": map[string]any{"googleSso": a.cfg.OIDC != nil, "smtp": a.cfg.Mailer != nil && a.cfg.MailMode != "preview", "emailDelivery": a.cfg.MailMode, "googleDrive": a.cfg.Drive != nil, "storage": storage, "scanner": scanner, "fileUploads": !a.cfg.DisableUploads, "imageUploads": !a.cfg.DisableUploads || a.cfg.AllowImageUploads, "uploadPolicy": a.cfg.UploadPolicy, "productionProfile": a.cfg.ProductionProfile, "mfa": len(a.cfg.MasterKey) == 32, "production": a.cfg.Production}, "jobs": jobs, "invitations": invitations, "legalHolds": holds})
 	return nil
 }
 func (a *API) companyUpdate(w http.ResponseWriter, r *http.Request) error {

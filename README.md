@@ -89,3 +89,5 @@ Owner-only POST /api/holidays/import/preview and POST /api/holidays/import valid
 Owner-only point adjustments and company app status use dedicated authenticated endpoints; see docs/API.md. Additive migration 006 adds an index for points adjustment history on startup. Owners retain access during maintenance; employee business access is enforced by the API.
 
 For v1.0 deployment, follow [DEPLOY_V1.md](docs/DEPLOY_V1.md). The root render.yaml provisions native Go and managed PostgreSQL. Explicit PRODUCTION_PROFILE=core supports deferred providers while keeping uploads disabled without S3 plus ClamAV; full remains strict. Fresh installs create one Superadmin from private environment values, without demo data.
+
+Already deployed on Vercel/Render Free? See [FREE_SERVICES.md](docs/FREE_SERVICES.md) for private R2, opt-in `UPLOAD_POLICY=images-only` profile/community images, SMTP alternate ports, Google deferral and database expiry planning. Default scanned policy and all general-file uploads still require ClamAV. The image-only option is not antivirus scanning.

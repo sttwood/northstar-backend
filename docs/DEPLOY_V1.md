@@ -61,7 +61,7 @@ Versioned migrations run automatically. With SEED_DEMO=false and no employees, i
 
 The Blueprint sets APP_ENV=production, PRODUCTION_PROFILE=core, secure cookies, encryption, real PostgreSQL and no demo seeds/email previews. Core supports password login/MFA, manual invitation links, requests/approvals, project data, calendars, community text, points, shop and in-app notifications.
 
-SMTP delivery/password-reset emails, Google SSO and Drive remain unavailable until configured. **All uploads stay disabled until both private S3 and ClamAV scanning exist**, including payslips, resources, profile photos and community images. API uploads return 503; Service connections shows storage/uploads disabled. Core does not store production uploads on Render's ephemeral filesystem.
+SMTP delivery/password-reset emails, Google SSO and Drive remain unavailable until configured. With the default `UPLOAD_POLICY=scanned`, **all uploads stay disabled until both private S3 and ClamAV scanning exist**, including payslips, resources, profile photos and community images. API uploads return 503; Service connections shows storage/uploads disabled. Core does not store production uploads on Render's ephemeral filesystem. For a limited free-allowance setup, [FREE_SERVICES.md](FREE_SERVICES.md) explains private Cloudflare R2 and explicit `UPLOAD_POLICY=images-only`: normalized PNG/JPEG profile/community images only, without an antivirus claim; general files remain blocked.
 
 PRODUCTION_PROFILE=full remains the strict default requiring all providers. See [PRODUCTION.md](PRODUCTION.md) for activation. ClamAV must be privately reachable and speak its TCP protocol; a generic HTTP scanner is not interchangeable. Existing native Ubuntu systemd/nginx examples offer an alternative for running ClamAV locally with Go. SMTP uses MAIL_DELIVERY=smtp plus credentials. Google OAuth callback is the frontend origin + /api/auth/sso/callback; service-account JSON belongs in a private hosting secret file.
 
@@ -76,3 +76,5 @@ Push reviewed commits to main to deploy. Do not edit applied migration SQL. Enab
 ใส่อีเมล Superadmin และ URL frontend จาก Vercel ตามตาราง Render จะสร้างรหัสผ่านเริ่มต้นกับ ENCRYPTION_KEY ให้ เก็บไว้ส่วนตัว แล้วนำ URL backend ไปตั้ง BACKEND_ORIGIN ของ Vercel และ Deploy frontend ใหม่ บัญชีเริ่มต้นมีเพียง Superadmin รหัสบริษัท nexilar ไม่มีข้อมูลตัวอย่าง
 
 ระบบ core ใช้ฐานข้อมูลจริง แต่ยังไม่ส่งอีเมลหรือเชื่อม Google จนกว่าจะตั้งค่า การอัปโหลดไฟล์ปิดไว้จนกว่าจะมีทั้ง S3 ส่วนตัวและ ClamAV อย่าใช้ development หรือข้อมูลตัวอย่างเพื่อเลี่ยงข้อกำหนดระบบจริง
+
+หากใช้โควตาฟรี อ่าน [FREE_SERVICES.md](FREE_SERVICES.md) เพื่อตั้ง R2 ส่วนตัวและเลือก images-only สำหรับรูปโปรไฟล์/ชุมชนที่ประมวลผลใหม่เท่านั้น ยังไม่ใช่การสแกนไวรัสและยังอัปโหลดเอกสารทั่วไปไม่ได้

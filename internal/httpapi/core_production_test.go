@@ -18,6 +18,7 @@ func coreEnvironment(t *testing.T) {
 	}
 	t.Setenv("APP_ENV", "production")
 	t.Setenv("PRODUCTION_PROFILE", "core")
+	t.Setenv("UPLOAD_POLICY", "scanned")
 	t.Setenv("MAIL_DELIVERY", "disabled")
 	t.Setenv("APP_PUBLIC_URL", "https://intranet.example.test")
 	t.Setenv("API_PUBLIC_URL", "https://intranet.example.test/api")
