@@ -1,0 +1,1347 @@
+{
+  "employees": [
+    {
+      "id": "maya",
+      "name": "Maya Chen",
+      "email": "maya@northstar.test",
+      "role": "employee",
+      "team": "Product",
+      "title": "Product designer",
+      "avatar": "MC",
+      "salary": 65000,
+      "startDate": "2022-05-16",
+      "phone": "+66 81 234 5678",
+      "location": "Bangkok, Thailand",
+      "leaveAllowance": 20
+    },
+    {
+      "id": "emma",
+      "name": "Emma Wilson",
+      "email": "emma@northstar.test",
+      "role": "owner",
+      "team": "Leadership",
+      "title": "Founder & CEO",
+      "avatar": "EW",
+      "salary": 120000,
+      "startDate": "2020-01-06",
+      "phone": "+66 81 234 5678",
+      "location": "Bangkok, Thailand",
+      "leaveAllowance": 20
+    },
+    {
+      "id": "jordan",
+      "name": "Jordan Lee",
+      "email": "jordan@northstar.test",
+      "role": "employee",
+      "team": "Product",
+      "title": "Frontend engineer",
+      "avatar": "JL",
+      "salary": 72000,
+      "startDate": "2023-02-01",
+      "phone": "+66 81 234 5678",
+      "location": "Bangkok, Thailand",
+      "leaveAllowance": 20
+    },
+    {
+      "id": "alex",
+      "name": "Alex Rivera",
+      "email": "alex@northstar.test",
+      "role": "employee",
+      "team": "Product",
+      "title": "Full-stack engineer",
+      "avatar": "AR",
+      "salary": 78000,
+      "startDate": "2022-11-14",
+      "phone": "+66 81 234 5678",
+      "location": "Bangkok, Thailand",
+      "leaveAllowance": 20
+    },
+    {
+      "id": "mia",
+      "name": "Mia Foster",
+      "email": "mia@northstar.test",
+      "role": "hr",
+      "team": "People",
+      "title": "People operations",
+      "avatar": "MF",
+      "salary": 60000,
+      "startDate": "2021-09-01",
+      "phone": "+66 81 234 5678",
+      "location": "Bangkok, Thailand",
+      "leaveAllowance": 20
+    },
+    {
+      "id": "noah",
+      "name": "Noah Kim",
+      "email": "noah@northstar.test",
+      "role": "employee",
+      "team": "Product",
+      "title": "Backend engineer",
+      "avatar": "NK",
+      "salary": 75000,
+      "startDate": "2024-01-08",
+      "phone": "+66 81 234 5678",
+      "location": "Bangkok, Thailand",
+      "leaveAllowance": 20
+    },
+    {
+      "id": "sam",
+      "name": "Sam Patel",
+      "email": "sam@northstar.test",
+      "role": "employee",
+      "team": "Design",
+      "title": "Visual designer",
+      "avatar": "SP",
+      "salary": 58000,
+      "startDate": "2023-06-12",
+      "phone": "+66 81 234 5678",
+      "location": "Bangkok, Thailand",
+      "leaveAllowance": 20
+    },
+    {
+      "id": "lena",
+      "name": "Lena Park",
+      "email": "lena@northstar.test",
+      "role": "employee",
+      "team": "Design",
+      "title": "UX researcher",
+      "avatar": "LP",
+      "salary": 62000,
+      "startDate": "2026-10-01",
+      "phone": "+66 81 234 5678",
+      "location": "Bangkok, Thailand",
+      "leaveAllowance": 20
+    }
+  ],
+  "records": [
+    {
+      "id": "atlas",
+      "kind": "project",
+      "employeeId": "emma",
+      "title": "Atlas website",
+      "status": "active",
+      "data": {
+        "code": "PRJ-024",
+        "description": "A fresh digital home for the next chapter of Northstar. Bringing a thoughtful brand and a better customer experience to life.",
+        "members": ["maya", "jordan", "alex", "noah"],
+        "color": "blue",
+        "startDate": "2026-09-01",
+        "dueDate": "2026-11-20",
+        "progress": 68,
+        "repository": "https://github.com/your-org/atlas",
+        "guide": "Prerequisites\nNode.js 20.9 or newer, Git, and a code editor.\n\n1. Clone the repository URL provided by your project owner.\n2. Copy .env.example to .env.local. Ask your lead for development credentials.\n3. Run npm ci to install dependencies.\n4. Run npm run dev and open http://localhost:3000.\n5. Run npm run build before opening a pull request.\n\nTroubleshooting\nIf port 3000 is busy, run npm run dev -- --port 3001. Never commit environment files.",
+        "milestones": [
+          {
+            "title": "Discovery & direction",
+            "date": "2026-09-15",
+            "done": true
+          },
+          {
+            "title": "Design handoff",
+            "date": "2026-10-20",
+            "done": false
+          },
+          {
+            "title": "Public launch",
+            "date": "2026-11-20",
+            "done": false
+          }
+        ],
+        "allocations": {
+          "maya": 60,
+          "jordan": 70,
+          "alex": 50,
+          "noah": 50
+        },
+        "environments": {
+          "dev": {
+            "url": "http://localhost:3000",
+            "apiUrl": "http://localhost:8080/api",
+            "branch": "develop",
+            "version": "v0.8.0-dev",
+            "status": "healthy",
+            "notes": "Local development workspace.\nFollow the Getting started guide to install prerequisites.\nApplication: npm run dev\nAPI: go run ./cmd/server",
+            "docs": [
+              {
+                "id": "dev-setup",
+                "title": "Setup & access checklist",
+                "url": "https://example.com/atlas/dev/setup",
+                "description": "Prerequisites, environment configuration, and team access. Sample documentation link."
+              },
+              {
+                "id": "dev-api",
+                "title": "API reference",
+                "url": "https://example.com/atlas/dev/api",
+                "description": "Endpoints, request examples, and integration notes. Sample documentation link."
+              }
+            ],
+            "timeline": [
+              {
+                "id": "dev-release",
+                "title": "Workspace ready",
+                "date": "2026-10-05",
+                "description": "Sample deployment and smoke tests completed.",
+                "status": "complete"
+              },
+              {
+                "id": "dev-review",
+                "title": "Next release review",
+                "date": "2026-10-20",
+                "description": "Review release notes and verify the critical user journeys.",
+                "status": "planned"
+              }
+            ],
+            "accounts": [
+              {
+                "id": "dev-reviewer",
+                "name": "Demo reviewer",
+                "username": "reviewer.dev@example.com",
+                "role": "Tester",
+                "url": "https://atlas-dev.example.com/login",
+                "secretRef": "https://example.com/vault/atlas-dev",
+                "status": "active"
+              },
+              {
+                "id": "dev-member",
+                "name": "Demo employee",
+                "username": "employee.dev@example.com",
+                "role": "Employee",
+                "url": "https://atlas-dev.example.com/login",
+                "secretRef": "",
+                "status": "active"
+              }
+            ]
+          },
+          "sit": {
+            "url": "https://atlas-sit.example.com",
+            "apiUrl": "https://atlas-sit.example.com/api",
+            "branch": "release/sit",
+            "version": "v0.7.2",
+            "status": "healthy",
+            "notes": "Sample SIT workspace. Links on example.com are placeholders.\nConfirm deployment access and configuration with the project lead.",
+            "docs": [
+              {
+                "id": "sit-setup",
+                "title": "Setup & access checklist",
+                "url": "https://example.com/atlas/sit/setup",
+                "description": "Prerequisites, environment configuration, and team access. Sample documentation link."
+              },
+              {
+                "id": "sit-api",
+                "title": "API reference",
+                "url": "https://example.com/atlas/sit/api",
+                "description": "Endpoints, request examples, and integration notes. Sample documentation link."
+              }
+            ],
+            "timeline": [
+              {
+                "id": "sit-release",
+                "title": "Workspace ready",
+                "date": "2026-10-06",
+                "description": "Sample deployment and smoke tests completed.",
+                "status": "complete"
+              },
+              {
+                "id": "sit-review",
+                "title": "Next release review",
+                "date": "2026-10-21",
+                "description": "Review release notes and verify the critical user journeys.",
+                "status": "planned"
+              }
+            ],
+            "accounts": [
+              {
+                "id": "sit-reviewer",
+                "name": "Demo reviewer",
+                "username": "reviewer.sit@example.com",
+                "role": "Tester",
+                "url": "https://atlas-sit.example.com/login",
+                "secretRef": "https://example.com/vault/atlas-sit",
+                "status": "active"
+              },
+              {
+                "id": "sit-member",
+                "name": "Demo employee",
+                "username": "employee.sit@example.com",
+                "role": "Employee",
+                "url": "https://atlas-sit.example.com/login",
+                "secretRef": "",
+                "status": "active"
+              }
+            ]
+          },
+          "uat": {
+            "url": "https://atlas-uat.example.com",
+            "apiUrl": "https://atlas-uat.example.com/api",
+            "branch": "release/uat",
+            "version": "v0.7.1-rc.1",
+            "status": "healthy",
+            "notes": "Sample UAT workspace. Links on example.com are placeholders.\nConfirm deployment access and configuration with the project lead.",
+            "docs": [
+              {
+                "id": "uat-setup",
+                "title": "Setup & access checklist",
+                "url": "https://example.com/atlas/uat/setup",
+                "description": "Prerequisites, environment configuration, and team access. Sample documentation link."
+              },
+              {
+                "id": "uat-api",
+                "title": "API reference",
+                "url": "https://example.com/atlas/uat/api",
+                "description": "Endpoints, request examples, and integration notes. Sample documentation link."
+              }
+            ],
+            "timeline": [
+              {
+                "id": "uat-release",
+                "title": "Workspace ready",
+                "date": "2026-10-07",
+                "description": "Sample deployment and smoke tests completed.",
+                "status": "complete"
+              },
+              {
+                "id": "uat-review",
+                "title": "Next release review",
+                "date": "2026-10-22",
+                "description": "Review release notes and verify the critical user journeys.",
+                "status": "planned"
+              }
+            ],
+            "accounts": [
+              {
+                "id": "uat-reviewer",
+                "name": "Demo reviewer",
+                "username": "reviewer.uat@example.com",
+                "role": "Tester",
+                "url": "https://atlas-uat.example.com/login",
+                "secretRef": "https://example.com/vault/atlas-uat",
+                "status": "active"
+              },
+              {
+                "id": "uat-member",
+                "name": "Demo employee",
+                "username": "employee.uat@example.com",
+                "role": "Employee",
+                "url": "https://atlas-uat.example.com/login",
+                "secretRef": "",
+                "status": "active"
+              }
+            ]
+          },
+          "prod": {
+            "url": "https://atlas-prod.example.com",
+            "apiUrl": "https://atlas-prod.example.com/api",
+            "branch": "main",
+            "version": "v0.7.0",
+            "status": "healthy",
+            "notes": "Sample PROD workspace. Links on example.com are placeholders.\nConfirm deployment access and configuration with the project lead.",
+            "docs": [
+              {
+                "id": "prod-setup",
+                "title": "Setup & access checklist",
+                "url": "https://example.com/atlas/prod/setup",
+                "description": "Prerequisites, environment configuration, and team access. Sample documentation link."
+              },
+              {
+                "id": "prod-api",
+                "title": "API reference",
+                "url": "https://example.com/atlas/prod/api",
+                "description": "Endpoints, request examples, and integration notes. Sample documentation link."
+              }
+            ],
+            "timeline": [
+              {
+                "id": "prod-release",
+                "title": "Workspace ready",
+                "date": "2026-10-08",
+                "description": "Sample deployment and smoke tests completed.",
+                "status": "complete"
+              },
+              {
+                "id": "prod-review",
+                "title": "Next release review",
+                "date": "2026-10-23",
+                "description": "Review release notes and verify the critical user journeys.",
+                "status": "planned"
+              }
+            ],
+            "accounts": []
+          }
+        }
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "portal",
+      "kind": "project",
+      "employeeId": "emma",
+      "title": "Customer portal",
+      "status": "active",
+      "data": {
+        "code": "PRJ-025",
+        "description": "Giving our customers a clear, simple place to manage their account and work with us.",
+        "members": ["maya", "alex", "sam", "lena"],
+        "color": "violet",
+        "startDate": "2026-10-01",
+        "dueDate": "2026-12-15",
+        "progress": 32,
+        "repository": "https://github.com/your-org/customer-portal",
+        "guide": "Prerequisites\nGo 1.27.2+, PostgreSQL 16+, Node.js 20.9+.\n\n1. Clone frontend and backend into sibling folders.\n2. Create the PostgreSQL database and copy both .env.example files.\n3. Run npm ci in frontend and go mod download in backend.\n4. Run go run ./cmd/server in backend.\n5. Run npm run dev in frontend.\n\nAsk the project owner for service credentials and the API contract.",
+        "milestones": [
+          {
+            "title": "Research complete",
+            "date": "2026-10-10",
+            "done": true
+          },
+          {
+            "title": "MVP ready",
+            "date": "2026-11-15",
+            "done": false
+          }
+        ],
+        "allocations": {
+          "maya": 40,
+          "alex": 50,
+          "sam": 100,
+          "lena": 100
+        },
+        "environments": {
+          "dev": {
+            "url": "http://localhost:3000",
+            "apiUrl": "http://localhost:8080/api",
+            "branch": "develop",
+            "version": "v0.8.0-dev",
+            "status": "healthy",
+            "notes": "Local development workspace.\nFollow the Getting started guide to install prerequisites.\nApplication: npm run dev\nAPI: go run ./cmd/server",
+            "docs": [
+              {
+                "id": "dev-setup",
+                "title": "Setup & access checklist",
+                "url": "https://example.com/portal/dev/setup",
+                "description": "Prerequisites, environment configuration, and team access. Sample documentation link."
+              },
+              {
+                "id": "dev-api",
+                "title": "API reference",
+                "url": "https://example.com/portal/dev/api",
+                "description": "Endpoints, request examples, and integration notes. Sample documentation link."
+              }
+            ],
+            "timeline": [
+              {
+                "id": "dev-release",
+                "title": "Workspace ready",
+                "date": "2026-10-05",
+                "description": "Sample deployment and smoke tests completed.",
+                "status": "complete"
+              },
+              {
+                "id": "dev-review",
+                "title": "Next release review",
+                "date": "2026-10-20",
+                "description": "Review release notes and verify the critical user journeys.",
+                "status": "planned"
+              }
+            ],
+            "accounts": [
+              {
+                "id": "dev-reviewer",
+                "name": "Demo reviewer",
+                "username": "reviewer.dev@example.com",
+                "role": "Tester",
+                "url": "https://portal-dev.example.com/login",
+                "secretRef": "https://example.com/vault/portal-dev",
+                "status": "active"
+              },
+              {
+                "id": "dev-member",
+                "name": "Demo employee",
+                "username": "employee.dev@example.com",
+                "role": "Employee",
+                "url": "https://portal-dev.example.com/login",
+                "secretRef": "",
+                "status": "active"
+              }
+            ]
+          },
+          "sit": {
+            "url": "https://portal-sit.example.com",
+            "apiUrl": "https://portal-sit.example.com/api",
+            "branch": "release/sit",
+            "version": "v0.7.2",
+            "status": "healthy",
+            "notes": "Sample SIT workspace. Links on example.com are placeholders.\nConfirm deployment access and configuration with the project lead.",
+            "docs": [
+              {
+                "id": "sit-setup",
+                "title": "Setup & access checklist",
+                "url": "https://example.com/portal/sit/setup",
+                "description": "Prerequisites, environment configuration, and team access. Sample documentation link."
+              },
+              {
+                "id": "sit-api",
+                "title": "API reference",
+                "url": "https://example.com/portal/sit/api",
+                "description": "Endpoints, request examples, and integration notes. Sample documentation link."
+              }
+            ],
+            "timeline": [
+              {
+                "id": "sit-release",
+                "title": "Workspace ready",
+                "date": "2026-10-06",
+                "description": "Sample deployment and smoke tests completed.",
+                "status": "complete"
+              },
+              {
+                "id": "sit-review",
+                "title": "Next release review",
+                "date": "2026-10-21",
+                "description": "Review release notes and verify the critical user journeys.",
+                "status": "planned"
+              }
+            ],
+            "accounts": [
+              {
+                "id": "sit-reviewer",
+                "name": "Demo reviewer",
+                "username": "reviewer.sit@example.com",
+                "role": "Tester",
+                "url": "https://portal-sit.example.com/login",
+                "secretRef": "https://example.com/vault/portal-sit",
+                "status": "active"
+              },
+              {
+                "id": "sit-member",
+                "name": "Demo employee",
+                "username": "employee.sit@example.com",
+                "role": "Employee",
+                "url": "https://portal-sit.example.com/login",
+                "secretRef": "",
+                "status": "active"
+              }
+            ]
+          },
+          "uat": {
+            "url": "https://portal-uat.example.com",
+            "apiUrl": "https://portal-uat.example.com/api",
+            "branch": "release/uat",
+            "version": "v0.7.1-rc.1",
+            "status": "healthy",
+            "notes": "Sample UAT workspace. Links on example.com are placeholders.\nConfirm deployment access and configuration with the project lead.",
+            "docs": [
+              {
+                "id": "uat-setup",
+                "title": "Setup & access checklist",
+                "url": "https://example.com/portal/uat/setup",
+                "description": "Prerequisites, environment configuration, and team access. Sample documentation link."
+              },
+              {
+                "id": "uat-api",
+                "title": "API reference",
+                "url": "https://example.com/portal/uat/api",
+                "description": "Endpoints, request examples, and integration notes. Sample documentation link."
+              }
+            ],
+            "timeline": [
+              {
+                "id": "uat-release",
+                "title": "Workspace ready",
+                "date": "2026-10-07",
+                "description": "Sample deployment and smoke tests completed.",
+                "status": "complete"
+              },
+              {
+                "id": "uat-review",
+                "title": "Next release review",
+                "date": "2026-10-22",
+                "description": "Review release notes and verify the critical user journeys.",
+                "status": "planned"
+              }
+            ],
+            "accounts": [
+              {
+                "id": "uat-reviewer",
+                "name": "Demo reviewer",
+                "username": "reviewer.uat@example.com",
+                "role": "Tester",
+                "url": "https://portal-uat.example.com/login",
+                "secretRef": "https://example.com/vault/portal-uat",
+                "status": "active"
+              },
+              {
+                "id": "uat-member",
+                "name": "Demo employee",
+                "username": "employee.uat@example.com",
+                "role": "Employee",
+                "url": "https://portal-uat.example.com/login",
+                "secretRef": "",
+                "status": "active"
+              }
+            ]
+          },
+          "prod": {
+            "url": "https://portal-prod.example.com",
+            "apiUrl": "https://portal-prod.example.com/api",
+            "branch": "main",
+            "version": "v0.7.0",
+            "status": "healthy",
+            "notes": "Sample PROD workspace. Links on example.com are placeholders.\nConfirm deployment access and configuration with the project lead.",
+            "docs": [
+              {
+                "id": "prod-setup",
+                "title": "Setup & access checklist",
+                "url": "https://example.com/portal/prod/setup",
+                "description": "Prerequisites, environment configuration, and team access. Sample documentation link."
+              },
+              {
+                "id": "prod-api",
+                "title": "API reference",
+                "url": "https://example.com/portal/prod/api",
+                "description": "Endpoints, request examples, and integration notes. Sample documentation link."
+              }
+            ],
+            "timeline": [
+              {
+                "id": "prod-release",
+                "title": "Workspace ready",
+                "date": "2026-10-08",
+                "description": "Sample deployment and smoke tests completed.",
+                "status": "complete"
+              },
+              {
+                "id": "prod-review",
+                "title": "Next release review",
+                "date": "2026-10-23",
+                "description": "Review release notes and verify the critical user journeys.",
+                "status": "planned"
+              }
+            ],
+            "accounts": []
+          }
+        }
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "t1",
+      "kind": "task",
+      "employeeId": "maya",
+      "title": "Map the new navigation",
+      "status": "done",
+      "data": {
+        "projectId": "atlas",
+        "assignee": "maya",
+        "priority": "high",
+        "dueDate": "2026-10-09",
+        "description": "Coordinate with the project team and share progress here.",
+        "dependsOn": []
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "t2",
+      "kind": "task",
+      "employeeId": "maya",
+      "title": "Homepage visual direction",
+      "status": "in-progress",
+      "data": {
+        "projectId": "atlas",
+        "assignee": "maya",
+        "priority": "high",
+        "dueDate": "2026-10-16",
+        "description": "Coordinate with the project team and share progress here.",
+        "dependsOn": []
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "t3",
+      "kind": "task",
+      "employeeId": "jordan",
+      "title": "Build the component library",
+      "status": "in-progress",
+      "data": {
+        "projectId": "atlas",
+        "assignee": "jordan",
+        "priority": "normal",
+        "dueDate": "2026-10-20",
+        "description": "Coordinate with the project team and share progress here.",
+        "dependsOn": ["t2"]
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "t4",
+      "kind": "task",
+      "employeeId": "alex",
+      "title": "Set up analytics events",
+      "status": "open",
+      "data": {
+        "projectId": "atlas",
+        "assignee": "alex",
+        "priority": "normal",
+        "dueDate": "2026-10-23",
+        "description": "Coordinate with the project team and share progress here.",
+        "dependsOn": []
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "t5",
+      "kind": "task",
+      "employeeId": "noah",
+      "title": "Review accessibility",
+      "status": "open",
+      "data": {
+        "projectId": "atlas",
+        "assignee": "noah",
+        "priority": "high",
+        "dueDate": "2026-10-27",
+        "description": "Coordinate with the project team and share progress here.",
+        "dependsOn": ["t3", "t4"]
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "t6",
+      "kind": "task",
+      "employeeId": "lena",
+      "title": "Customer interview synthesis",
+      "status": "done",
+      "data": {
+        "projectId": "portal",
+        "assignee": "lena",
+        "priority": "normal",
+        "dueDate": "2026-10-10",
+        "description": "Coordinate with the project team and share progress here.",
+        "dependsOn": []
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "t7",
+      "kind": "task",
+      "employeeId": "maya",
+      "title": "Account settings wireframes",
+      "status": "in-progress",
+      "data": {
+        "projectId": "portal",
+        "assignee": "maya",
+        "priority": "high",
+        "dueDate": "2026-10-19",
+        "description": "Coordinate with the project team and share progress here.",
+        "dependsOn": []
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "t8",
+      "kind": "task",
+      "employeeId": "alex",
+      "title": "Connect the billing API",
+      "status": "open",
+      "data": {
+        "projectId": "portal",
+        "assignee": "alex",
+        "priority": "normal",
+        "dueDate": "2026-10-28",
+        "description": "Coordinate with the project team and share progress here.",
+        "dependsOn": []
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "leave1",
+      "kind": "leave",
+      "employeeId": "maya",
+      "title": "Vacation · 19–20 Oct",
+      "status": "approved",
+      "data": {
+        "type": "vacation",
+        "startDate": "2026-10-19",
+        "endDate": "2026-10-20",
+        "days": 2,
+        "reason": "Family time."
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "leave2",
+      "kind": "leave",
+      "employeeId": "maya",
+      "title": "Vacation · 3–7 Aug",
+      "status": "approved",
+      "data": {
+        "type": "vacation",
+        "startDate": "2026-08-03",
+        "endDate": "2026-08-07",
+        "days": 5,
+        "reason": "Summer break."
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "leave3",
+      "kind": "leave",
+      "employeeId": "maya",
+      "title": "Vacation · 7 Sep",
+      "status": "approved",
+      "data": {
+        "type": "vacation",
+        "startDate": "2026-09-07",
+        "endDate": "2026-09-07",
+        "days": 1,
+        "reason": "Personal day."
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "leave4",
+      "kind": "leave",
+      "employeeId": "jordan",
+      "title": "Vacation",
+      "status": "approved",
+      "data": {
+        "type": "vacation",
+        "startDate": "2026-10-14",
+        "endDate": "2026-10-15",
+        "days": 2,
+        "reason": "Private"
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "leave5",
+      "kind": "leave",
+      "employeeId": "alex",
+      "title": "Sick leave",
+      "status": "approved",
+      "data": {
+        "type": "sick",
+        "startDate": "2026-10-15",
+        "endDate": "2026-10-15",
+        "days": 1,
+        "reason": "Private"
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "leave6",
+      "kind": "leave",
+      "employeeId": "noah",
+      "title": "Vacation",
+      "status": "approved",
+      "data": {
+        "type": "vacation",
+        "startDate": "2026-10-19",
+        "endDate": "2026-10-21",
+        "days": 3,
+        "reason": "Private"
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "leave7",
+      "kind": "leave",
+      "employeeId": "sam",
+      "title": "Vacation",
+      "status": "approved",
+      "data": {
+        "type": "vacation",
+        "startDate": "2026-10-29",
+        "endDate": "2026-10-30",
+        "days": 2,
+        "reason": "Private"
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "ot1",
+      "kind": "overtime",
+      "employeeId": "maya",
+      "title": "Atlas website · Design handoff",
+      "status": "approved",
+      "data": {
+        "date": "2026-10-02",
+        "startTime": "18:00",
+        "endTime": "23:00",
+        "hours": 5,
+        "projectId": "atlas",
+        "reason": "Final design handoff."
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "ot2",
+      "kind": "overtime",
+      "employeeId": "maya",
+      "title": "Atlas website · Launch preparation",
+      "status": "approved",
+      "data": {
+        "date": "2026-10-08",
+        "startTime": "16:00",
+        "endTime": "23:30",
+        "hours": 7.5,
+        "projectId": "atlas",
+        "reason": "Launch preparation."
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "ot3",
+      "kind": "overtime",
+      "employeeId": "maya",
+      "title": "Atlas website · 2.5 hours",
+      "status": "pending",
+      "data": {
+        "date": "2026-10-13",
+        "startTime": "18:00",
+        "endTime": "20:30",
+        "hours": 2.5,
+        "projectId": "atlas",
+        "reason": "Complete the homepage review."
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "doc1",
+      "kind": "document",
+      "employeeId": "maya",
+      "title": "Employment certificate",
+      "status": "approved",
+      "data": {
+        "documentType": "Employment certificate",
+        "language": "English",
+        "purpose": "Bank application"
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "doc2",
+      "kind": "document",
+      "employeeId": "noah",
+      "title": "Employment certificate",
+      "status": "pending",
+      "data": {
+        "documentType": "Employment certificate",
+        "language": "English",
+        "purpose": "Visa application"
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "ticket1",
+      "kind": "ticket",
+      "employeeId": "maya",
+      "title": "Laptop battery issue",
+      "status": "open",
+      "data": {
+        "category": "IT support",
+        "priority": "normal",
+        "description": "My laptop battery drains quickly. Could someone help check it?",
+        "comments": []
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "req1",
+      "kind": "request",
+      "employeeId": "maya",
+      "title": "Design software license",
+      "status": "pending",
+      "data": {
+        "category": "Software & tools",
+        "description": "Annual design tool renewal for the product team."
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "lv-pending",
+      "kind": "leave",
+      "employeeId": "jordan",
+      "title": "Vacation · 2–3 Nov",
+      "status": "pending",
+      "data": {
+        "type": "vacation",
+        "startDate": "2026-11-02",
+        "endDate": "2026-11-03",
+        "days": 2,
+        "reason": "Family visit."
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "holiday1",
+      "kind": "holiday",
+      "employeeId": "emma",
+      "title": "Founders’ Day",
+      "status": "active",
+      "data": {
+        "date": "2026-10-23",
+        "team": "All teams",
+        "description": "A little time to celebrate how far we have come."
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "holiday2",
+      "kind": "holiday",
+      "employeeId": "emma",
+      "title": "New Year’s Day",
+      "status": "active",
+      "data": {
+        "date": "2027-01-01",
+        "team": "All teams",
+        "description": "Happy new year!"
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "benefit1",
+      "kind": "benefit",
+      "employeeId": "mia",
+      "title": "Health & wellbeing",
+      "status": "active",
+      "data": {
+        "category": "Health",
+        "description": "Your wellbeing comes first. Access annual health checks and comprehensive health insurance.",
+        "allowance": "฿50,000 / year",
+        "contact": "people@northstar.test",
+        "details": "Coverage includes outpatient care, hospital stays, and one annual health check. Contact People Operations for enrollment and claim forms."
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "benefit2",
+      "kind": "benefit",
+      "employeeId": "mia",
+      "title": "Keep growing",
+      "status": "active",
+      "data": {
+        "category": "Learning",
+        "description": "A little curiosity goes a long way. Make room for courses, books, and conferences.",
+        "allowance": "฿15,000 / year",
+        "contact": "people@northstar.test",
+        "details": "Submit a general request with the course or event details and cost. Your manager will review it before purchase."
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "benefit3",
+      "kind": "benefit",
+      "employeeId": "mia",
+      "title": "Work your way",
+      "status": "active",
+      "data": {
+        "category": "Lifestyle",
+        "description": "Flexible hours, hybrid working, and the space to do your best work.",
+        "allowance": "3 remote days / week",
+        "contact": "people@northstar.test",
+        "details": "Agree on your remote days with your project lead and keep your calendar up to date. Our core collaboration hours are 10:00–15:00."
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "on1",
+      "kind": "onboarding",
+      "employeeId": "maya",
+      "title": "Meet your team",
+      "status": "done",
+      "data": {
+        "description": "Schedule a hello with your project team and your buddy.",
+        "dueDate": "2026-10-20"
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "on2",
+      "kind": "onboarding",
+      "employeeId": "maya",
+      "title": "Set up your workspace",
+      "status": "open",
+      "data": {
+        "description": "Install development tools, connect your accounts, and read your project guide.",
+        "dueDate": "2026-10-20"
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "on3",
+      "kind": "onboarding",
+      "employeeId": "maya",
+      "title": "Review the employee handbook",
+      "status": "open",
+      "data": {
+        "description": "Learn about our time off policy, benefits, and ways of working.",
+        "dueDate": "2026-10-20"
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    },
+    {
+      "id": "template1",
+      "kind": "template",
+      "employeeId": "emma",
+      "title": "Northstar standard",
+      "status": "active",
+      "data": {
+        "company": "Northstar Studio Co., Ltd.",
+        "footer": "This payslip is confidential. Please contact People Operations with any questions.",
+        "fields": [
+          "Employee name",
+          "Employee ID",
+          "Pay period",
+          "Base salary",
+          "Overtime pay",
+          "Bonus",
+          "Deductions",
+          "Net pay"
+        ]
+      },
+      "createdAt": "2026-10-12T09:00:00Z"
+    }
+  ],
+  "files": [
+    {
+      "id": "sample-payslip-maya-2026-07",
+      "employeeId": "maya",
+      "name": "Maya-Chen-2026-07-payslip.pdf",
+      "category": "payslip",
+      "month": 7,
+      "year": 2026,
+      "size": 2570,
+      "createdAt": "2026-08-01T09:00:00Z"
+    },
+    {
+      "id": "sample-payslip-maya-2026-08",
+      "employeeId": "maya",
+      "name": "Maya-Chen-2026-08-payslip.pdf",
+      "category": "payslip",
+      "month": 8,
+      "year": 2026,
+      "size": 2574,
+      "createdAt": "2026-09-01T09:00:00Z"
+    },
+    {
+      "id": "sample-payslip-maya-2026-09",
+      "employeeId": "maya",
+      "name": "Maya-Chen-2026-09-payslip.pdf",
+      "category": "payslip",
+      "month": 9,
+      "year": 2026,
+      "size": 2582,
+      "createdAt": "2026-10-01T09:00:00Z"
+    },
+    {
+      "id": "sample-payslip-emma-2026-07",
+      "employeeId": "emma",
+      "name": "Emma-Wilson-2026-07-payslip.pdf",
+      "category": "payslip",
+      "month": 7,
+      "year": 2026,
+      "size": 2570,
+      "createdAt": "2026-08-01T09:00:00Z"
+    },
+    {
+      "id": "sample-payslip-emma-2026-08",
+      "employeeId": "emma",
+      "name": "Emma-Wilson-2026-08-payslip.pdf",
+      "category": "payslip",
+      "month": 8,
+      "year": 2026,
+      "size": 2578,
+      "createdAt": "2026-09-01T09:00:00Z"
+    },
+    {
+      "id": "sample-payslip-emma-2026-09",
+      "employeeId": "emma",
+      "name": "Emma-Wilson-2026-09-payslip.pdf",
+      "category": "payslip",
+      "month": 9,
+      "year": 2026,
+      "size": 2584,
+      "createdAt": "2026-10-01T09:00:00Z"
+    },
+    {
+      "id": "sample-payslip-jordan-2026-07",
+      "employeeId": "jordan",
+      "name": "Jordan-Lee-2026-07-payslip.pdf",
+      "category": "payslip",
+      "month": 7,
+      "year": 2026,
+      "size": 2568,
+      "createdAt": "2026-08-01T09:00:00Z"
+    },
+    {
+      "id": "sample-payslip-jordan-2026-08",
+      "employeeId": "jordan",
+      "name": "Jordan-Lee-2026-08-payslip.pdf",
+      "category": "payslip",
+      "month": 8,
+      "year": 2026,
+      "size": 2574,
+      "createdAt": "2026-09-01T09:00:00Z"
+    },
+    {
+      "id": "sample-payslip-jordan-2026-09",
+      "employeeId": "jordan",
+      "name": "Jordan-Lee-2026-09-payslip.pdf",
+      "category": "payslip",
+      "month": 9,
+      "year": 2026,
+      "size": 2584,
+      "createdAt": "2026-10-01T09:00:00Z"
+    },
+    {
+      "id": "sample-payslip-alex-2026-07",
+      "employeeId": "alex",
+      "name": "Alex-Rivera-2026-07-payslip.pdf",
+      "category": "payslip",
+      "month": 7,
+      "year": 2026,
+      "size": 2572,
+      "createdAt": "2026-08-01T09:00:00Z"
+    },
+    {
+      "id": "sample-payslip-alex-2026-08",
+      "employeeId": "alex",
+      "name": "Alex-Rivera-2026-08-payslip.pdf",
+      "category": "payslip",
+      "month": 8,
+      "year": 2026,
+      "size": 2570,
+      "createdAt": "2026-09-01T09:00:00Z"
+    },
+    {
+      "id": "sample-payslip-alex-2026-09",
+      "employeeId": "alex",
+      "name": "Alex-Rivera-2026-09-payslip.pdf",
+      "category": "payslip",
+      "month": 9,
+      "year": 2026,
+      "size": 2577,
+      "createdAt": "2026-10-01T09:00:00Z"
+    },
+    {
+      "id": "sample-payslip-mia-2026-07",
+      "employeeId": "mia",
+      "name": "Mia-Foster-2026-07-payslip.pdf",
+      "category": "payslip",
+      "month": 7,
+      "year": 2026,
+      "size": 2570,
+      "createdAt": "2026-08-01T09:00:00Z"
+    },
+    {
+      "id": "sample-payslip-mia-2026-08",
+      "employeeId": "mia",
+      "name": "Mia-Foster-2026-08-payslip.pdf",
+      "category": "payslip",
+      "month": 8,
+      "year": 2026,
+      "size": 2570,
+      "createdAt": "2026-09-01T09:00:00Z"
+    },
+    {
+      "id": "sample-payslip-mia-2026-09",
+      "employeeId": "mia",
+      "name": "Mia-Foster-2026-09-payslip.pdf",
+      "category": "payslip",
+      "month": 9,
+      "year": 2026,
+      "size": 2583,
+      "createdAt": "2026-10-01T09:00:00Z"
+    },
+    {
+      "id": "sample-payslip-noah-2026-07",
+      "employeeId": "noah",
+      "name": "Noah-Kim-2026-07-payslip.pdf",
+      "category": "payslip",
+      "month": 7,
+      "year": 2026,
+      "size": 2568,
+      "createdAt": "2026-08-01T09:00:00Z"
+    },
+    {
+      "id": "sample-payslip-noah-2026-08",
+      "employeeId": "noah",
+      "name": "Noah-Kim-2026-08-payslip.pdf",
+      "category": "payslip",
+      "month": 8,
+      "year": 2026,
+      "size": 2567,
+      "createdAt": "2026-09-01T09:00:00Z"
+    },
+    {
+      "id": "sample-payslip-noah-2026-09",
+      "employeeId": "noah",
+      "name": "Noah-Kim-2026-09-payslip.pdf",
+      "category": "payslip",
+      "month": 9,
+      "year": 2026,
+      "size": 2575,
+      "createdAt": "2026-10-01T09:00:00Z"
+    },
+    {
+      "id": "sample-payslip-sam-2026-07",
+      "employeeId": "sam",
+      "name": "Sam-Patel-2026-07-payslip.pdf",
+      "category": "payslip",
+      "month": 7,
+      "year": 2026,
+      "size": 2567,
+      "createdAt": "2026-08-01T09:00:00Z"
+    },
+    {
+      "id": "sample-payslip-sam-2026-08",
+      "employeeId": "sam",
+      "name": "Sam-Patel-2026-08-payslip.pdf",
+      "category": "payslip",
+      "month": 8,
+      "year": 2026,
+      "size": 2572,
+      "createdAt": "2026-09-01T09:00:00Z"
+    },
+    {
+      "id": "sample-payslip-sam-2026-09",
+      "employeeId": "sam",
+      "name": "Sam-Patel-2026-09-payslip.pdf",
+      "category": "payslip",
+      "month": 9,
+      "year": 2026,
+      "size": 2577,
+      "createdAt": "2026-10-01T09:00:00Z"
+    },
+    {
+      "id": "sample-payslip-lena-2026-07",
+      "employeeId": "lena",
+      "name": "Lena-Park-2026-07-payslip.pdf",
+      "category": "payslip",
+      "month": 7,
+      "year": 2026,
+      "size": 2569,
+      "createdAt": "2026-08-01T09:00:00Z"
+    },
+    {
+      "id": "sample-payslip-lena-2026-08",
+      "employeeId": "lena",
+      "name": "Lena-Park-2026-08-payslip.pdf",
+      "category": "payslip",
+      "month": 8,
+      "year": 2026,
+      "size": 2572,
+      "createdAt": "2026-09-01T09:00:00Z"
+    },
+    {
+      "id": "sample-payslip-lena-2026-09",
+      "employeeId": "lena",
+      "name": "Lena-Park-2026-09-payslip.pdf",
+      "category": "payslip",
+      "month": 9,
+      "year": 2026,
+      "size": 2577,
+      "createdAt": "2026-10-01T09:00:00Z"
+    }
+  ],
+  "audit": []
+}

@@ -1,0 +1,23 @@
+[Unit]
+Description=Northstar Go API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=northstar
+Group=northstar
+WorkingDirectory=/opt/northstar/backend
+EnvironmentFile=/etc/northstar/backend.env
+ExecStart=/opt/northstar/backend/bin/northstar
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/northstar/uploads
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target

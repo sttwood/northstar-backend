@@ -1,0 +1,21 @@
+[Unit]
+Description=Northstar Next.js frontend
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=northstar
+Group=northstar
+WorkingDirectory=/opt/northstar/frontend
+Environment=NODE_ENV=production
+Environment=PORT=3000
+ExecStart=/usr/bin/node node_modules/next/dist/bin/next start --hostname 127.0.0.1
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+
+[Install]
+WantedBy=multi-user.target

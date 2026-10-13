@@ -1,0 +1,54 @@
+# Native Go + managed PostgreSQL. Review the paid plans before creating the Blueprint.
+services:
+  - type: web
+    name: nexilar-api
+    runtime: go
+    plan: 0.5c-512mb
+    region: singapore
+    buildCommand: go build -trimpath -o bin/northstar ./cmd/server
+    startCommand: sh deploy/render-start.sh
+    healthCheckPath: /readyz
+    envVars:
+      - key: GOTOOLCHAIN
+        value: go1.27.2
+      - key: APP_ENV
+        value: production
+      - key: PRODUCTION_PROFILE
+        value: core
+      - key: COMPANY_NAME
+        value: Nexilar
+      - key: COMPANY_SLUG
+        value: nexilar
+      - key: ADMIN_NAME
+        value: Superadmin
+      - key: SEED_DEMO
+        value: 'false'
+      - key: COOKIE_SECURE
+        value: 'true'
+      - key: MAIL_DELIVERY
+        value: disabled
+      - key: FRONTEND_UPSTREAM_URL
+        value: ''
+      - key: DATABASE_URL
+        fromDatabase:
+          name: nexilar-db
+          property: connectionString
+      - key: ENCRYPTION_KEY
+        generateValue: true
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        generateValue: true
+      - key: APP_PUBLIC_URL
+        sync: false
+      - key: API_PUBLIC_URL
+        sync: false
+      - key: ALLOWED_ORIGINS
+        sync: false
+databases:
+  - name: nexilar-db
+    plan: 0.1c-256mb
+    region: singapore
+    databaseName: nexilar
+    user: nexilar
+    ipAllowList: []
